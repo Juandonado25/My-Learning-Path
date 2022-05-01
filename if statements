@@ -1,0 +1,56 @@
+using System;
+
+namespace Practicas
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            bool isRegistered = false;
+            string newUserName;
+            string newPassword;
+            string userName;
+            string password;
+
+            Console.WriteLine("Welcome, you are going to register now. please follow the steps");
+            Console.Write("please enter your new username: ");
+            newUserName = Console.ReadLine();
+            Console.Write("Please enter you new password: ");
+            newPassword = Console.ReadLine();
+
+            if (newUserName != "" && newPassword != "")
+            {
+                isRegistered = true;
+                Console.WriteLine("Now you can sign up");
+            }
+
+            Console.Write("Please enter your username: ");
+            userName = Console.ReadLine();
+            Console.Write("Please enter your password: ");
+            password = Console.ReadLine();
+
+            if(isRegistered == true)
+            {
+                if(userName == newUserName && password == newPassword)
+                {
+                    Console.WriteLine("Welcome user");
+                }
+                else if(userName != newUserName && password == newPassword)
+                {
+                    Console.WriteLine("Your user is inscorrect");
+                }
+                else if(userName == newUserName && password != newPassword)
+                {
+                    Console.WriteLine("Your password is inscorrect");
+                }
+                else if (userName != newUserName && password != newPassword)
+                {
+                    Console.WriteLine("You are not registered");
+                }
+            }
+            Console.Read();
+
+        }
+
+    }
+}
