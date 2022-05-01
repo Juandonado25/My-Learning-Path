@@ -1,0 +1,32 @@
+using System;
+
+namespace Practicas
+{
+    internal class Program
+    {
+        static int highScore = 1545;
+        static string highscorePlayer = "TheBest25";
+
+        static void Main(string[] args)
+        {
+            CheckScore(1540, "gabriel");
+            CheckScore(1600, "Halo23");
+            CheckScore(1800, "Juandnd25");
+            Console.ReadKey();
+        }
+        
+        public static void CheckScore(int score, string player)
+        {
+            if(score > highScore)
+            {
+                highScore = score;
+                highscorePlayer = player;
+                Console.WriteLine("New highscore is " + highScore);
+                Console.WriteLine("And is now held by " + highscorePlayer);
+            }
+            else
+            {
+                Console.WriteLine("Old high score could not be broken still is " + highScore + " and is held by " + highscorePlayer);
+            }
+        }
+    }
