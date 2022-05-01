@@ -1,0 +1,49 @@
+using System;
+
+namespace Practicas
+{
+    internal class Program
+    {
+        static string password;
+        static string userName;
+
+        static void Main(string[] args)
+        {
+            Register();
+            Login();
+            Console.ReadKey();
+        }
+
+        public static void Register()
+        {
+            Console.WriteLine("Welcome to Registration. Follow the steps");
+            Console.Write("Please enter yor username:");
+            userName = Console.ReadLine();
+            Console.Write("Please enter your password: ");
+            password = Console.ReadLine();
+            Console.WriteLine("Registration completed.");
+            Console.WriteLine("-------------------------------");
+        }
+
+        public static void Login()
+        {
+            Console.Write("Please enter your username: ");
+            if(userName == Console.ReadLine())
+            {
+                Console.Write("Enter your password: ");
+                if(password == Console.ReadLine())
+                {
+                    Console.WriteLine("Login sucessful!");
+                }
+                else
+                {
+                    Console.WriteLine("Login failed, wrong password, please restart");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Login failed, wrong username, please restart");
+            }
+        }
+    }
+}
