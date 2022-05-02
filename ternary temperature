@@ -1,0 +1,31 @@
+using System;
+
+namespace Practicas
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int inputTemperature = 0;
+            string inputValue = string.Empty;
+            string temperatureMessage = string.Empty;
+
+            Console.Write("Enter the temperature: ");
+            inputValue = Console.ReadLine();
+
+            bool validnumber = int.TryParse(inputValue, out inputTemperature);
+
+            if (validnumber)
+            {
+                temperatureMessage = inputTemperature <= 15 ? "It is cold here" : (inputTemperature > 15 && inputTemperature <= 25) ? "It is ok"
+                    : inputTemperature > 25 ? "It is hot here" : "";
+                Console.WriteLine(temperatureMessage);
+            }
+            else
+            {
+                Console.WriteLine("It is not a valid temperature");
+            }
+            Console.Read();
+        }
+    }
+}
