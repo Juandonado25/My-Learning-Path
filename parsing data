@@ -1,0 +1,21 @@
+using System;
+
+namespace HelloWorld
+{   
+    class Program
+    {
+
+        public static void Main(string[] args)
+        {
+            string stringForFloat = "0.85"; // datatype should be float
+            string stringForInt = "12345"; // datatype should be int
+
+            float parsingFloat = float.Parse(stringForFloat);
+            int parsingInt = int.Parse(stringForInt);
+
+            Console.WriteLine("float is {0}, int is {1}", parsingFloat, parsingInt);
+
+            Console.Read();
+        }
+    }
+}
