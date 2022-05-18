@@ -1,0 +1,25 @@
+using System;
+
+namespace Practicas
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int counter = 0;
+            string enteredString = "";
+            while(enteredString.Equals(""))
+            {
+                
+                Console.WriteLine("Please press enter if you want to increase the people counter by one else" +
+                    " press any other key to finish the counter");
+                enteredString = Console.ReadLine();
+                Console.WriteLine("Current people count is {0}", counter);
+                counter++;
+
+            }
+            Console.WriteLine("{0} people are inside the bus, `press enter to close the program", counter);
+            Console.Read();
+        }
+    }
+}
