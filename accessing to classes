@@ -1,0 +1,30 @@
+using System;
+using Practicas;
+
+namespace Coding.Exercise
+{
+    public class Exercise
+    {
+        static void Main(string[] args) 
+        {
+            Human Juan = new Human();
+            Juan.firstName = "Juan Jose";
+            Juan.lastName = "Donado Arias";
+
+            Human Sikiu = new Human();
+            Sikiu.firstName = "Yessica Sikiu";
+            Sikiu.lastName = "Erazo Leon";
+
+            Human JuanPa = new Human();
+            JuanPa.firstName = "Juan Pablo";
+            JuanPa.lastName = "Donado erazo";
+            
+            Juan.IntroduceMyself();
+            Sikiu.IntroduceMyself();
+            JuanPa.IntroduceMyself();
+
+
+            Console.ReadKey();
+        }
+    }
+}
