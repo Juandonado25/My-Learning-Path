@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Practicas
+{
+    class Human
+    {
+        private string firstName;
+        private string lastName;
+        private string eyeColor;
+        private int age;
+        
+        //Constructor
+        public Human(string firstName, string lastName, string eyeColor, int age)
+        {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.eyeColor = eyeColor;
+            this.age = age;
+        }
+
+        public void IntroduceMyself()
+        {
+            Console.WriteLine("Hello!, I`m {0} {1} and i have {2} eyes and i am {3} years old", firstName, lastName, eyeColor, age);
+        }
+    }
+}
