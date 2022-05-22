@@ -1,0 +1,18 @@
+using System;
+
+namespace propertiesExercises
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Box square = new Box(2,3);
+            Console.WriteLine("The value of the height is {0} and the length is {1}. So the front surface is {2}", square.Height, square.Length, square.Surface);
+            square.Length = 5;
+            square.Height = 3;
+            Console.WriteLine("The value of the height is {0} and the length is {1}. So the front surface is {2}", square.Height, square.Length, square.Surface);
+
+
+        }
+    }
+}
