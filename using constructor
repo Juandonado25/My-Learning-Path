@@ -1,0 +1,21 @@
+using System;
+using Practicas;
+
+namespace Coding.Exercise
+{
+    public class Exercise
+    {
+        static void Main(string[] args) 
+        {
+            Human juan = new Human("JuanJo", "Donado", "Brown", 26);
+            Human sikiu = new Human("sikiu", "Erazo", "Brown", 27);
+            Human juanpa = new Human("JuanPa", "Donado", "Brown", 0);
+
+            juan.IntroduceMyself();
+            juanpa.IntroduceMyself();
+            sikiu.IntroduceMyself();
+
+            Console.ReadKey();
+        }
+    }
+}
