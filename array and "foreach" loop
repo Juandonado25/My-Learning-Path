@@ -1,0 +1,32 @@
+using System;
+
+namespace Practicas_2
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] num = new int[10];
+
+            for (int i = 0; i < 10; i++)
+            {
+                num[i] = i + 10;
+            }
+
+            for (int j = 0; j < num.Length; j++)
+            {
+                Console.WriteLine("Element {0} = {1}", j, num[j]);
+            }
+
+            Console.WriteLine("-----------------------------");
+
+            int counter = 0;
+            foreach(int k in num)
+            {
+                Console.WriteLine("Element {0} = {1}", counter, k);
+                counter++;
+            }
+            Console.ReadKey();
+        }
+    }
+}
