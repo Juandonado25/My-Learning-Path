@@ -1,0 +1,84 @@
+using System;
+
+namespace _2darrays
+{
+    internal class Program
+    {
+        static int[,] matrix =
+        {
+            {1, 2, 3 },
+            {4, 5, 6 },
+            {7 , 8, 9 },
+        };
+        static void Main(string[] args)
+        {
+            // with a foreach loop
+            Console.WriteLine("2D array printed with a For each loop:");
+            
+            foreach(int item in matrix)
+            {
+                Console.Write(item + " ");
+            }
+
+            //display using for loop
+            Console.WriteLine("\n2D array printed using a nested for loop");
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    Console.Write(matrix[i, j] + " ");
+                }
+            }
+
+            //display even numbers
+            Console.WriteLine("\n even numbers:");
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    if (matrix[i, j]%2 == 0)
+                    {
+                        Console.Write(matrix[i, j] + " ");
+                    }
+                }
+            }
+
+            //display odd numbers
+            Console.WriteLine("\n odd numbers:");
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    if (matrix[i, j] % 2 != 0)
+                    {
+                        Console.Write(matrix[i, j] + " ");
+                    }
+                }
+            }
+
+            //display 1st diagonal numbers
+            Console.WriteLine("\nDiagonal numbers from right to left: ");
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    if (i == j)
+                    {
+                        Console.Write(matrix[i, j] + " ");
+                    }
+                }
+            }
+
+            //display 2st diagonal numbers
+            Console.WriteLine("\nDiagonal numbers from ledt to right: ");
+            for (int i = 0, j = 2; i < matrix.GetLength(0); i++, j--)
+            {
+                Console.WriteLine(matrix[i,j]+ " ");   
+            }
+
+
+
+
+        }
+    }
+}
