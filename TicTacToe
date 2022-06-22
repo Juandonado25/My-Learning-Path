@@ -1,0 +1,208 @@
+using System;
+
+namespace TicTacToe
+{
+    internal class Program
+    {
+        //Let's declare the array which contain the position values on to the play field.
+        static char[,] board = 
+            { 
+                { '1', '2', '3' }, //{ 0,0, 0,1, 0,2 }
+                { '4', '5', '6' }, //{ 1,0, 1,1, 1,2 }
+                { '7', '8', '9' }  //{ 2,0, 2,1, 2,2 }
+            };
+
+        static int turns = 0;
+
+        static bool check = false;
+
+        static void Main(string[] args)
+        {
+            //Declare the variables
+            int player = 2;//I set the player like "2" because it will be useful later in toggle statement
+            int input = 0;// the input is "0" because non of the fields in the board is cero and it will be handy
+            bool inputCorrect = true;
+
+            Console.WriteLine("      TIC TAC TOE!!");
+            //Run code as long the program runs
+            do
+            {
+                //This will toggle between player 1 and player 2
+                //Because i have multiple lines, i have to use curly braces "{}" in if statement
+                //Here i need to create a mathod who replace the number in the board for X or O
+                if (player == 2)
+                {
+                    player = 1;
+
+                    EnterXorO(player, input);
+                }
+                    
+                else if (player == 1)
+                {
+                    player = 2;
+
+                    EnterXorO(player, input);
+                }
+                SetBoard();
+
+                //Check winning condition
+                char[] playerChars = { 'X', 'O' };
+
+                foreach (char playerChar in playerChars)
+                {
+                    if (((board[0,0] == playerChar) && (board[0,1] == playerChar) && (board[0,2] == playerChar))
+                        || ((board[1, 0] == playerChar) && (board[1, 1] == playerChar) && (board[1, 2] == playerChar))
+                        || ((board[2, 0] == playerChar) && (board[2, 1] == playerChar) && (board[2, 2] == playerChar))
+                        || ((board[0, 0] == playerChar) && (board[1, 0] == playerChar) && (board[2, 0] == playerChar))
+                        || ((board[0, 1] == playerChar) && (board[1, 1] == playerChar) && (board[2, 1] == playerChar))
+                        || ((board[0, 2] == playerChar) && (board[1, 2] == playerChar) && (board[2, 2] == playerChar))
+                        || ((board[0, 0] == playerChar) && (board[1, 1] == playerChar) && (board[2, 2] == playerChar))
+                        || ((board[2, 0] == playerChar) && (board[1, 1] == playerChar) && (board[0, 2] == playerChar))
+                        )
+                    {
+                        if (playerChar == 'X')
+                        {
+                            Console.WriteLine("\nPlayer 2 has won!");
+                        }
+                        else
+                        {
+                            Console.WriteLine("\nPlayer 1 has won!");
+                        }
+                        Console.Write("please enter any key to reset the game!");
+                        Console.ReadKey();
+                        refreshBorad();
+                        break;
+                    }else if(turns = 10)
+                    {
+                        Console.WriteLine("DRAAW!");
+                        Console.Write("please enter any key to reset the game!");
+                        Console.ReadKey();
+                        refreshBorad();
+                        break;
+                    }
+                    
+                    
+
+
+
+                }
+                #region
+                do
+                {
+                    Console.Write("\nPlayer {0}, Choose Your field!: ", player);
+                    try
+                    {
+                        input = Convert.ToInt32(Console.ReadLine());
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Please anter a number!");
+                    }
+                    
+                    //this statement is for cath a invalid field number
+                    if (input == 1 && board[0,0] == '1')
+                        inputCorrect = true;
+                    else if(input == 2 && board[0,1] == '2')
+                        inputCorrect= true;
+                    else if (input == 3 && board[0, 2] == '3')
+                        inputCorrect = true;
+                    else if (input == 4 && board[1, 0] == '4')
+                        inputCorrect = true;
+                    else if (input == 5 && board[1, 1] == '5')
+                        inputCorrect = true;
+                    else if (input == 6 && board[1, 2] == '6')
+                        inputCorrect = true;
+                    else if (input == 7 && board[2, 0] == '7')
+                        inputCorrect = true;
+                    else if (input == 8 && board[2, 1] == '8')
+                        inputCorrect = true;
+                    else if (input == 9 && board[2, 2] == '9')
+                        inputCorrect = true;
+                    else
+                    {
+                        Console.WriteLine("Please enter a valid number field!");
+                        inputCorrect = false;
+                    }
+                    
+
+                } while (!inputCorrect);
+                #endregion
+
+            } while (true);
+
+            Console.ReadKey();
+        }
+
+        public static void EnterXorO(int player, int input)
+        {
+            char playerSign = ' ';
+
+            if (player == 1)
+                playerSign = 'X';
+            else if(player == 2)
+                playerSign = 'O';
+
+            switch (input)
+            {
+                case 1: board[0, 0] = playerSign; break;
+                case 2: board[0, 1] = playerSign; break;
+                case 3: board[0, 2] = playerSign; break;
+                case 4: board[1, 0] = playerSign; break;
+                case 5: board[1, 1] = playerSign; break;
+                case 6: board[1, 2] = playerSign; break;
+                case 7: board[2, 0] = playerSign; break;
+                case 8: board[2, 1] = playerSign; break;
+                case 9: board[2, 2] = playerSign; break;
+
+            }
+           
+        }
+        //This shows the play field on to the console.
+        public static void SetBoard()
+        {
+            Console.Clear();
+            Console.WriteLine("\n        |     |      ");
+            Console.WriteLine("     {0}  |  {1}  |  {2} ", board[0,0], board[0,1], board[0,2]);
+            Console.WriteLine("   _____|_____|_____");
+            Console.WriteLine("        |     |      ");
+            Console.WriteLine("     {0}  |  {1}  |  {2} ", board[1, 0], board[1, 1], board[1, 2]);
+            Console.WriteLine("   _____|_____|_____");
+            Console.WriteLine("        |     |      ");
+            Console.WriteLine("     {0}  |  {1}  |  {2} ", board[2, 0], board[2, 1], board[2, 2]);
+            Console.WriteLine("        |     |      ");
+            turns++;
+        }
+
+        //refresh the game
+        public static void refreshBorad()
+        {
+            char[,] boardInitiate =
+            {
+                { '1', '2', '3' },
+                { '4', '5', '6' },
+                { '7', '8', '9' }
+            };
+
+            board = boardInitiate;
+            SetBoard();
+            turns = 0;
+        }
+        //Now the function that will check if the game is over.
+        /*public static bool CheckField(char[,] board)
+        {
+            for (int i = 0; i < board.GetLength(0); i++)
+            {
+                if (board[i,0] == board[i,1] && board[i,1] == board[i,2])
+                    return true;
+                if (board[0,i] == board[1,i] && board[1,i] == board[2,i])
+                    return true;
+            }
+            if (board[0, 0] == board[1, 1] && board[1, 1] == board[2, 2])
+                return true;
+            if (board[0, 2] == board[1, 1] && board[1, 1] == board[2, 0])
+                return true;
+            else
+                return false;
+        }*/
+    }
+}
