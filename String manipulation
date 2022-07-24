@@ -1,0 +1,44 @@
+using System;
+
+namespace StringManupulation
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //define few variables
+            int age = 26;
+            string name = "juan";
+            string job = "Developer";
+
+            // 1. string cocatenation
+            Console.WriteLine("String Cocatenation");
+            Console.WriteLine("Hello my name is " + name + " , i am " + age + " years old");
+
+            // 2. String formatting.
+            //string formating uses index
+            Console.WriteLine("String Formatting");
+            Console.WriteLine("Hello my name is {0} , I am {1} years old", name, age);
+
+            // 3. String interpolation
+            // string interpolation uses $ at the start which will allow us to write 
+            // our variables like this {variableName}
+            Console.WriteLine("string interpolation");
+            Console.WriteLine($"Hello my name is {name} , I am {age} years old");
+
+            // 4. Verbatim strings.
+            //Verbatim strings start with @ and tells the compiler to take the string
+            //literaly and ignore any spaces  and escape characters like \n
+            Console.WriteLine("verbatim string");
+            Console.WriteLine(@"Lorem ipsum dolor sit ametLorem ipsum dolor sit amet, consecte ipsum Lorem ipsum dolor sit amet, 
+  consectetuer adipiscing elit, sed diam nonumm
+  y nibh Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh");
+            //instead of using \\ to write file paths we can use verbatim strings to make it easier
+            //if you remove the @ you will get an error because \U, \A and \D are not valid escape characters for example:
+            Console.WriteLine(@"C:\User\Admin\Dog pictures\Dog1\Super CoolDog.png");
+
+
+            Console.ReadKey();
+        }
+    }
+}
